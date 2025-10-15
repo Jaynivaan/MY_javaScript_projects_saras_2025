@@ -110,7 +110,7 @@
 
         <main>
             <H2>Try a quick script&infin;gam&infin;gate</H2>
-            <p text-align="center">
+            <p >
                 Choose a concept below and unlock
                 Press the &infin;gam&infin; button below &downarrow; to trigger the &hearts;js Test&infin;event&hearts;<br>
                  *gam*. <br>
@@ -118,30 +118,30 @@
             </p>
 
            <!----=======================concept list============================-->
-           <div>
-            <label style="margin: 1rem 0;">
+           <div class="row" style="justify-content: center">
+            <label  for="concept">Concept:</label>
                 <select id="concept" style="margin-left: 0.5rem; padding: 0.4rem; border-radius: 6px;">
                     
                     <option value="concept1">Hello world Alert</option>
                     <option value="concept2">COMMING SOON</option><!--INACTIVE BUT VISIBLEBUTTON-->
                 </select>
-            </label>
+            
            </div>
 
             <!--step1 initiate-->
-            <div>
+            <div class="row">
                 <button id ="btnInit" class="btn">&infin;GAM&infin;</button>
                 <small id="status1" aria-live="polite"></small>
             </div>
 
             <!--step2 confirm-->
-            <div>
+            <div class="row">
                 <button id="btnConfirm" class="btn secondary">Confirm&infin;gam&infin;</button>
                 <small id="status2" aria-live="polite"></small>
             </div>
 
             <!--step3 type gam confirm-->
-            <div>
+            <div class="row">
                 <label for="code" class="sr-only">Kindly Type"<b>gam</b>" to proceed</label>
                 <input id="code" type="text" placeholder="sir..type &RightArrow; gam"  autocomplete="off"/>
                 <button id="btnRun" class="btn" disabled>Run&infin;Test</button>
@@ -149,44 +149,79 @@
 
 
             </div>
-
-
             
-
             <p id="output" style="margin-top: 1.5rem;"></p>
 
-
-            
-
-
-
-
             <section>
-                <!--hero comes here-->
+                <!--future sections comes here-->
             </section>
             <section>
                 <!--section2 comes here-->
-
             </section>
             <section>
                 <!--section 3 comes here---->
-
             </section>
+
         </main>
 
         <footer>
             &copy; 2025 JayakrishnanParameswarankutty guided from the masters of <i>The&infin;Tech&infin;Academy&infin;</i> while serving the wisdom of dynamic programming.*&infin;gam&infin;*
         </footer>
 
-        <script>
-            const button = document.getElementById('actionBtn');
-            const output = document.getElementById('output');
+        <script>//elements
+            const concept = document.getElementById('concept');
+            const btnInit = document.getElementById('btnInit');
+            const btnConfirm = document.getElementById('btnConfirm');
+            const btnRun = document.getElementById('btnRun');
+            const code = document.getElementById('code');
+            const out = documetn.getElementById('output');
+            const s1 = document.getElementById('status1');
+            const s2 = document.getElementById('status2');
+            const s3 = document.getElementById('status3');
 
-            button.addEventListener('click',() =>{
-                const now = new Date().toLocaleTimeString();
-                output.innerHTML = `<i>*gam*  </i>its  time<b>NOW </b> again <i>*gam*</i><br><br><b>${now}</b>`;
-                console.log("Button pressed at: ", "*gam*its right time*gam*");
+            //step1
+            btnInit.addEventListener('click', () =>{
+                if (!concept.value) { alert('please choose a concept first sir'); return; }
+                s1.textContent = '*gam*∞Initiating∞*gam*';
+                btnConfirm.disabled = false;
+                out.textContent = '∞confirm ∞ to ∞ continue ∞';
+
             });
+
+            //step2
+            btnConfirm.addEventListener('click',() =>{
+                btnConfirm.disabled = true;
+                s2.textContent = '∞Confirmed∞';
+                code.disabled = false; code.focus();
+                out.textContent = ' ∞ sir..kindly type "gam" and click Run∞Test. ∞'
+            });
+
+            //only enable run when the gate phrase is correct
+
+            code.addEventListener('input',() => {
+                const ok = code.value.trim().toLowerCase()==='gam';
+                btnRun.disable = !ok;
+                s3.textContent = ok ? 'Gate accepted.' : 'Kindly ∞ type ∞ "gam" here∞';
+            });
+
+            //run selected concept
+            btnRun.addEventListener('click', () => {
+                const sel = concept.value;
+                if (sel === "concept1") {
+                    alert ('Hello World! <br>∞The Awareness has now spoken here*gam*∞');
+                    out.innerHTML = '<b>Alert shown successfully.</b>';
+                }
+                //else if (sel ==="concept2") {
+                    //yet to add 
+                //}
+                else {
+                    out.textContent = 'No valid concept selected.';
+                }
+                
+            });
+
         </script>
+
+
     </body>
-</html>"
+</html>
