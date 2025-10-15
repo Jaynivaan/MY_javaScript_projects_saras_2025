@@ -96,7 +96,7 @@
                 color: var(--muted);
                 margin-top: auto;
             }
-            .hidden { display: none; }
+            .hidden { display: none !important; }
             .row { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center;}
 
             
@@ -190,8 +190,14 @@
             const step3 = document.getElementById('step3');
 
             //helpers
-            const hide = el => el.classList.add('hidden');
-            const show = el => { el.classList.remove('hidden'); el.style.display = 'flex';};
+            const hide = (el) => {
+                el.classList.add('hidden');
+                el.style.removeProperty('display');
+            };
+            const show = (el) => { 
+                el.classList.remove('hidden'); 
+                //el.style.display = 'flex';
+                };
 
             //show only one step and hide others
             function showOnly(stepE1){
@@ -250,8 +256,9 @@
                     //yet to add 
                 //}
                 else {
-                    out.textContent = 'No valid concept selected.';
-                    return;
+                    out.textContent = 'No valid concept selected./nResetting.. ';
+                    setTimeout(resetGate,3000);
+                    
                 }
 
                 //success state: lock inputs briefly, then reset to default..
