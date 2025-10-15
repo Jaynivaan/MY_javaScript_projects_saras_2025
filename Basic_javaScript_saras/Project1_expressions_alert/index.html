@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!--===Page-Basics===-->
-        <meta charset="utf=8">
+        <meta charset="utf-8">
         <meta name ="viewport" content="width=device-width, initial-scale=1">
         <title><!--===Page-Title-here===--></title>
 
@@ -10,7 +10,7 @@
         <meta name="author" content="JayakrishnanParameswarankutty">
         
         <!--===Favicons (SVG data URI keeps file single)===-->
-        <link rel="icon" href='data:image/svg+xml,<svg smlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">< rec width="100" height="100" rx="18" fill="%23000" /><text x="50" y="58" font-size="54" text-anchor="middle" fill="%23fff" >*</text></svg>'>
+        <link rel="icon" href='data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">< rect width="100" height="100" rx="18" fill="%23000"/><text x="50" y="58" font-size="54" text-anchor="middle" fill="%23fff">*</text></svg>'>
 
         <!--===social/SEO===-->
         <meta property="og:title" content="-----<!--copy the title from above-->-----">
@@ -25,7 +25,7 @@
             /* 1) Design tokens*/
             :root{
                 --bg:#0b0c10;
-                --surface:# 121318;
+                --surface: #121318;
                 --text:#e9ecf1;
                 --muted:#9aa5b1;
                 --brand:#7cf3c3;
@@ -33,7 +33,7 @@
                 --accent:#bda7ff;
                 --ring: 0 0 0 .2rem color-mix(in oklch, var(--brand),transparent 60%);
                 --radius:14px;
-                --shadow: 0 10px 30pc rgba(0, 0, 0, .35);
+                --shadow: 0 10px 30px rgba(0, 0, 0, .35);
                 --maxw: 1080px;
                 color-scheme: dark light;
 
@@ -70,7 +70,7 @@
                 background:rgba(255, 255, 255, 0.04);
                 border-radius:var(--radius);
                 padding: 2rem;
-                width: min(600px, 90px);
+                width: min(600px, 90%);
                 box-shadow: var(--shadow);
                 text-align: left;
 
@@ -109,13 +109,41 @@
         </header>
 
         <main>
-            <H2>Try a quick script</H2>
-            <p>Press the button below &downarrow; to trigger the js event*gam*: with out clicking this gam nothing can be experimented here *gam*</p>
-            <button id ="actionBtn">&infin;gam&infin;</button>
+            <H2>Try a quick script&infin;gam&infin;gate</H2>
+            <p>
+                Press the &infin;gam&infin; button below &downarrow; to trigger the js Testevent*gam*. <br>
+                You'll confirm once more,then type <code>*gam*</code> to unlock running. *gam*
+            </p>
+
+            <!--step1 initiate-->
+            <div>
+                <button id ="btnInit" class="btn">&infin;GAM&infin;</button>
+                <small id="status1" aria-live="polite"></small>
+            </div>
+
+            <!--step2 confirm-->
+            <div>
+                <button id="btnConfirm" class="btn secondary">Confirm&infin;gam&infin;</button>
+                <small id="status2" aria-live="polite"></small>
+            </div>
+
+            <!--step3 type gam confirm-->
+            <div>
+                <label for="code" class="sr-only">Kindly Type"<b>gam</b>" to proceed</label>
+                <input id="code" type="text" placeholder="sir..type &RightArrow; gam"  autocomplete="off"/>
+                <button id="btnRun" class="btn" disabled>Run&infin;Test</button>
+                <small id="status3" aria-live="polite"></small>
+
+
+            </div>
+
+
+            
 
             <p id="output" style="margin-top: 1.5rem;"></p>
 
 
+            
 
 
 
@@ -134,7 +162,7 @@
         </main>
 
         <footer>
-            &copy; 2025 JayakrishnanParameswarankutty guided while learning.. 
+            &copy; 2025 JayakrishnanParameswarankutty guided from the masters of <i>The&infin;Tech&infin;Academy&infin;</i> while serving the wisdom of dynamic programming.*&infin;gam&infin;*
         </footer>
 
         <script>
@@ -143,7 +171,7 @@
 
             button.addEventListener('click',() =>{
                 const now = new Date().toLocaleTimeString();
-                output.innerHTML = `Button clicked at <b>${now}</b>`;
+                output.innerHTML = `<i>*gam*  </i>its  time<b>NOW </b> again <i>*gam*</i><br><br><b>${now}</b>`;
                 console.log("Button pressed at: ", "*gam*its right time*gam*");
             });
         </script>
