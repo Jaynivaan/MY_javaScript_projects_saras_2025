@@ -15,5 +15,16 @@ along my journey of nurturing this repo i will update the this corresponding fil
 ___________________________________________________________________________________________________________________________
 ------------------------------------------------------------------------------------------------------------------------------
 ==========================================================================================================================
-1#a:
+1==directory
+project1_expressions_alert
+========
+-directory created based on the instructions from the instructor..
 
+---
+1#a
+index.html
+this the basic html template to learn various js scripts..
+this file is styled within with root tones, body, header, h1, main, button, buttonhover and footer...
+included a basic js script as a voluntary js learn initiative...
+
+=---\
