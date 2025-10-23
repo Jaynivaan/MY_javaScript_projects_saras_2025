@@ -1,3 +1,56 @@
+/* ===== Global Variables ===== */
 :root {
+  --bg: #0b0e12;
+  --text: #e9eef5;
+  --accent: #58e1f0;
+  --accent-2: #b896ff;
+  --radius: 10px;
+  --space: 1rem;
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
 
+/* ===== Base Page Style ===== */
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+  margin: 0;
+  padding: var(--space);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ===== Heading ===== */
+h1 {
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(88, 225, 240, .3);
+}
+
+/* ===== Paragraph ===== */
+p {
+  max-width: 600px;
+  line-height: 1.6;
+  font-size: 1rem;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* ===== Button ===== */
+.btn-custom {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: var(--bg);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.7rem 1.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform .2s ease, box-shadow .3s ease;
+}
+.btn-custom:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(88,225,240,0.5);
 }
