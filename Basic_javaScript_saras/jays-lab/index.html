@@ -1,0 +1,274 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!--===Page-Basics===-->
+        <meta charset="utf-8">
+        <meta name ="viewport" content="width=device-width, initial-scale=1">
+        <title><!--===Page-Title-here===--></title>
+
+        <meta name="description" content="*gam* A fast accessible, mobile-first HTML starter-template.*gam*">
+        <meta name="author" content="JayakrishnanParameswarankutty">
+        
+        <!--===Favicons (SVG data URI keeps file single)===-->
+        <link rel="icon" href='data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">< rect width="100" height="100" rx="18" fill="%23000"/><text x="50" y="58" font-size="54" text-anchor="middle" fill="%23fff">*</text></svg>'>
+
+        <!--===social/SEO===-->
+        <meta property="og:title" content="-----<!--copy the title from above-->-----">
+        <meta property="og:description" content="-----<!--copy the description from above-->-----">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <meta name="twitter:card" content="summary_large_image">
+
+        <!--====Base styles(no external css ===)-->  
+        <style>
+            /* 1) Design tokens*/
+            :root{
+                --bg:#0b0c10;
+                --surface: #121318;
+                --text:#e9ecf1;
+                --muted:#9aa5b1;
+                --brand:#7cf3c3;
+                --brand-ink:#083a2f;
+                --accent:#bda7ff;
+                --ring: 0 0 0 .2rem color-mix(in oklch, var(--brand),transparent 60%);
+                --radius:14px;
+                --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+                --maxw: 1080px;
+                color-scheme: dark light;
+
+            }
+            /*basic=reset*/
+            * {
+                box-sizing: border-box; margin: 0; padding: 0;
+            }
+            body{
+                font-family: system-ui, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                background: var(--bg);
+                color: var(--text);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                height: 100vh;
+                padding: 2rem;
+                gap: 1.5rem;
+            }
+
+            header{
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
+            h1{
+                color: var(--brand);
+                text-shadow: 0 0 8px rgba(0, 195, 163, 0.4);
+                letter-spacing: .5px;
+
+            }
+            main{
+                background:rgba(255, 255, 255, 0.04);
+                border-radius:var(--radius);
+                padding: 2rem;
+                width: min(600px, 90%);
+                box-shadow: var(--shadow);
+                text-align: left;
+
+            }
+            button{
+                background: var(--brand);
+                color: #fff;
+                border: none;
+                border-radius:var(--radius);
+                padding: 0.7rem 1.2rem;
+                cursor: pointer;
+                font-weight: bold;
+                transition: all 0.3s ease;
+
+            }
+            button:hover{
+                background: color-mix(in srgb, var(--brand), white 15%);
+                transform: scale(1.05);
+
+            }
+            footer{
+                font-size: 0.85rem;
+                color: var(--muted);
+                margin-top: auto;
+            }
+            .hidden { display: none !important; }
+            .row { display: flex; gap: .6rem; flex-wrap: wrap; align-items: center;}
+
+            
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>&infin;Javascript Practice @JaysLab*gam*&infin;</h1>
+            <p>&hearts;Experiment &nbsp;&nbsp;&hearts;iterate&nbsp;&nbsp;learn</p>
+
+
+        </header>
+
+        <main>
+            <H2>Try a quick script&infin;gam&infin;gate</H2>
+            <p >
+                Choose a concept below and unlock
+                Press the &infin;gam&infin; button below &downarrow; to trigger the &hearts;js Test&infin;event&hearts;<br>
+                 *gam*. <br>
+                You'll confirm once more,then type <code>*gam*</code> to unlock running. *gam*
+            </p>
+
+           <!----=======================concept list============================-->
+           <div class="row" style="justify-content: center">
+            <label  for="concept">Concept:</label>
+                <select id="concept" style="margin-left: 0.5rem; padding: 0.4rem; border-radius: 6px;">
+                    
+                    <option value="concept1">Hello world Alert</option>
+                    <option value="concept2">COMMING SOON</option><!--INACTIVE BUT VISIBLEBUTTON-->
+                </select>
+            
+           </div>
+
+            <!--step1 initiate-->
+            <div class="row" id ="step1">
+                <button id ="btnInit" class="btn">&infin;GAM&infin;</button>
+                <small id="status1" aria-live="polite"></small>
+            </div>
+
+            <!--step2 confirm-->
+            <div class="row hidden" id="step2">
+                <button id="btnConfirm" class="btn secondary">Confirm&infin;gam&infin;</button>
+                <small id="status2" aria-live="polite"></small>
+            </div>
+
+            <!--step3 type gam confirm-->
+            <div class="row hidden" id ="step3">
+                <label for="code" class="sr-only">Kindly Type"<b>gam</b>" to proceed</label>
+                <input id="code" type="text" placeholder="sir..type &RightArrow; gam"  autocomplete="off"/>
+                <button id="btnRun" class="btn" disabled>Run&infin;Test</button>
+                <small id="status3" aria-live="polite"></small>
+
+
+            </div>
+            
+            <p id="output" style="margin-top: 1.5rem;"></p>
+
+            <section>
+                <!--future sections comes here-->
+            </section>
+            <section>
+                <!--section2 comes here-->
+            </section>
+            <section>
+                <!--section 3 comes here---->
+            </section>
+
+        </main>
+
+        <footer>
+            &copy; 2025 JayakrishnanParameswarankutty guided from the masters of <i>The&infin;Tech&infin;Academy&infin;</i> while serving the wisdom of dynamic programming.*&infin;gam&infin;*
+        </footer>
+
+        <script defer>
+        document.addEventListener('DOMContentLoaded',() =>{
+
+            //elements
+            const concept = document.getElementById('concept');
+            const btnInit = document.getElementById('btnInit');
+            const btnConfirm = document.getElementById('btnConfirm');
+            const btnRun = document.getElementById('btnRun');
+            const code = document.getElementById('code');
+            const out = document.getElementById('output');
+            const s1 = document.getElementById('status1');
+            const s2 = document.getElementById('status2');
+            const s3 = document.getElementById('status3');
+
+            // step containers
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+
+            //helpers
+            const hide = (el) => {
+                el.classList.add('hidden');
+                el.style.removeProperty('display');
+            };
+            const show = (el) => { 
+                el.classList.remove('hidden'); 
+                //el.style.display = 'flex';
+                };
+
+            //show only one step and hide others
+            function showOnly(stepE1){
+                [step1, step2, step3].forEach(el => (el === stepE1 ? show(el) :hide(el)));
+            }
+
+            //gate reset to default ui state
+            function resetGate(){
+                concept.value = '';
+                s1.textContent =''; s2.textContent =''; s3.textContent ='';
+                out.textContent='';
+                btnConfirm.disabled = true;
+                btnRun.disabled = true;
+                code.value = ''; code.disabled = true;
+                showOnly(step1);
+            }
+
+            //initial state
+            resetGate();
+
+            //-----state transitions----------------------
+            
+            //step1 to step2//
+            btnInit.addEventListener('click', () =>{
+                if (!concept.value) { alert('please choose a concept first sir'); return; }
+                s1.textContent = '*gam*∞Initiating∞*gam*';
+                out.textContent = '∞confirm ∞ to ∞ continue ∞';
+                btnConfirm.disabled = false;
+                showOnly(step2);
+            });
+            
+            //step2 to step3//
+            btnConfirm.addEventListener('click',() =>{
+                btnConfirm.disabled = true;
+                s2.textContent = '∞Confirmed∞';
+                out.textContent = ' ∞ sir..kindly type "gam" and click Run∞Test. ∞';                 
+                code.disabled = false; code.focus();
+                showOnly(step3);               
+            });
+
+            //gate check (enable run only when "gam")
+            code.addEventListener('input',() => {
+                const ok = code.value.trim().toLowerCase()==='gam';
+                btnRun.disabled = !ok;
+                s3.textContent = ok ? 'Gate accepted.' : 'Kindly ∞ type ∞ "gam" here∞';
+            });
+
+            //run selected concept
+            btnRun.addEventListener('click', () => {
+                const sel = concept.value;
+
+                if (sel === "concept1") {
+                    alert ('Hello World! \n∞The Awareness has now spoken here*gam*∞');
+                    out.innerHTML = '<b>Alert shown successfully.</b>';
+                }//else if (sel ==="concept2") {
+                    //yet to add 
+                //}
+                else {
+                    out.textContent = 'No valid concept selected./nResetting.. ';
+                    setTimeout(resetGate,3000);
+                    
+                }
+
+                //success state: lock inputs briefly, then reset to default..
+                btnRun.disabled = true; code.disabled = true;
+                s3.textContent = 'success .. Resetting.. ';
+                setTimeout(resetGate,3000);
+        });         
+      });
+        </script>
+
+
+    </body>
+</html>
