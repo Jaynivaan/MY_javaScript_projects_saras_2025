@@ -1,1 +1,44 @@
 /*gam*/
+:root{
+  --bg:#0b0c10;
+  --surface:#121318;
+  --text:#e9ecf1;
+  --brand:#7cf3c3;
+  --accent:#bda7ff;
+  --radius:12px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+body{
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+  padding:2rem;
+  text-align:center;
+}
+button{
+  background:var(--brand);
+  border:none;
+  border-radius:var(--radius);
+  color:#001a11;
+  font-weight:bold;
+  padding:.6rem 1.2rem;
+  cursor:pointer;
+}
+.codebox{
+  position:relative;
+  background:#0b0c10;
+  border:1px solid #1f2630;
+  border-radius:12px;
+  padding:14px 16px;
+  font-family:ui-monospace,Menlo,Consolas,monospace;
+  box-shadow:var(--shadow);
+  margin-top:1rem;
+}
+.copy-btn{
+  position:absolute;top:8px;right:8px;
+  background:linear-gradient(135deg,var(--brand),var(--accent));
+  border:none;border-radius:8px;
+  padding:.3rem .6rem;font-weight:700;
+  cursor:pointer;
+}
+pre{margin:0;overflow:auto;}
