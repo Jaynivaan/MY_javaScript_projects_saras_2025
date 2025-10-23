@@ -66,3 +66,16 @@ p {
     font-family: ui-monospace; SFMono-Regular, Menlo, Consolas, monospace;
     box-shadow: 0 10px 30px rgba(0,0,0, .3);
 }
+
+.codebox::before{
+  content: attr(data-lang);           /* shows “html” like a titlebar */
+  position:absolute; top:-10px; left:12px;
+  background:#121821; color:#9cc7ff; font-size:.75rem;
+  padding:2px 8px; border-radius:6px; border:1px solid #1e2630;
+}
+.copy-btn{
+  position:absolute; top:8px; right:8px; border:0; cursor:pointer;
+  background:linear-gradient(135deg,#58e1f0,#b896ff); color:#061018;
+  font-weight:700; padding:.35rem .6rem; border-radius:8px;
+}
+pre{ margin:0; overflow:auto; }
