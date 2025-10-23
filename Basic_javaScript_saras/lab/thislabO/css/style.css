@@ -1,4 +1,4 @@
-/*gam*/
+/* ===== Theme tokens ===== */
 :root{
   --bg:#0b0c10;
   --surface:#121318;
@@ -7,38 +7,186 @@
   --accent:#bda7ff;
   --radius:12px;
   --shadow:0 10px 30px rgba(0,0,0,.35);
+
+  /* feed Bootstrap */
+  --bs-primary: var(--brand);
+  --bs-primary-rgb: 124,243,195;
+  --bs-info: #58e1f0;
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--text);
+  --bs-border-color: rgba(255,255,255,.08);
+
+  /* ===== Cosmic energy dial (0 calm → 1 intense) ===== */
+  --energy: .25;                               /* default calm */
+  --infty-speed: calc((6 - 3 * var(--energy)) * 1s);
+  --devi-spin:  calc((7 - 4 * var(--energy)) * 1s);
+  --devi-pulse: calc((2.4 - 1.2 * var(--energy)) * 1s);
+  --o-scale:    calc(1 + (0.07 * var(--energy)));
 }
+
+html,body{ height:100% }
 body{
-  font-family:system-ui;
-  background:var(--bg);
-  color:var(--text);
-  padding:2rem;
-  text-align:center;
+  background: var(--bg);
+  color: var(--text);
 }
-button{
-  background:var(--brand);
-  border:none;
-  border-radius:var(--radius);
-  color:#001a11;
-  font-weight:bold;
-  padding:.6rem 1.2rem;
-  cursor:pointer;
+
+/* Header & headings */
+h1,h2{ letter-spacing:.3px }
+
+/* ---------- Select (floating label) ---------- */
+.form-select.form-select-lg{
+  background-color: rgba(255,255,255,0.03);
+  border: 1px solid var(--bs-border-color);
+  color: var(--bs-body-color);
+  box-shadow: none;
 }
-.codebox{
-  position:relative;
-  background:#0b0c10;
-  border:1px solid #1f2630;
-  border-radius:12px;
-  padding:14px 16px;
-  font-family:ui-monospace,Menlo,Consolas,monospace;
-  box-shadow:var(--shadow);
-  margin-top:1rem;
+.form-select.form-select-lg:focus{
+  border-color: var(--bs-info);
+  box-shadow: 0 0 0 .25rem rgba(88,225,240,.25);
 }
+
+/* ---------- Primary button (gradient) ---------- */
+#initBtn{
+  --btn-grad-from: var(--bs-primary);
+  --btn-grad-to: var(--bs-info);
+  background-image: linear-gradient(135deg, var(--btn-grad-from), var(--btn-grad-to));
+  border: none;
+  color: #051d18;
+  transition: transform .15s ease, filter .15s ease;
+}
+#initBtn:hover{
+  filter: brightness(1.05) saturate(1.05);
+  transform: translateY(-1px);
+}
+#initBtn:active{ transform: translateY(0) }
+
+/* ---------- Saras Box (unique card) ---------- */
+.sarasbox{
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 120% at 10% -10%, rgba(184,150,255,.08), transparent 60%),
+    radial-gradient(100% 100% at 90% 0%, rgba(88,225,240,.08), transparent 60%),
+    rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--bs-border-color);
+}
+.sarasbox::before{
+  content: "";
+  position: absolute; inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(88,225,240,.35), rgba(184,150,255,.35));
+  pointer-events: none;
+}
+.sarasbox .card-header{ padding: .6rem .85rem }
+
+/* Code area */
+#codeView{
+  color: #d6f1ff;
+  line-height: 1.55;
+  min-height: 120px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px) 0 0 / 100% 28px,
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px) 0 0 / 28px 100%;
+  border-top: 1px solid var(--bs-border-color);
+}
+
+/* Copy button */
 .copy-btn{
-  position:absolute;top:8px;right:8px;
-  background:linear-gradient(135deg,var(--brand),var(--accent));
-  border:none;border-radius:8px;
-  padding:.3rem .6rem;font-weight:700;
-  cursor:pointer;
+  border-color: rgba(88,225,240,.6) !important;
+  color: var(--bs-info) !important;
 }
-pre{margin:0;overflow:auto;}
+.copy-btn:hover{
+  background-color: rgba(88,225,240,.12);
+  color:#041017 !important;
+}
+
+/* Small screens */
+@media (max-width: 575.98px){
+  .form-select.form-select-lg{
+    font-size: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+  }
+}
+
+/* ===== Header style & cosmic animations ===== */
+
+/* Title shimmer ∞ (always on, speed from --infty-speed) */
+.brand-title{ letter-spacing:.4px; font-weight:800; }
+.infty{
+  background: conic-gradient(from 0deg,
+    #58e1f0, #b896ff, #7cf3c3, #ffc86b, #58e1f0);
+  -webkit-background-clip: text; background-clip:text; color:transparent;
+  filter: drop-shadow(0 0 6px rgba(88,225,240,.35));
+  animation: inftyOrbit var(--infty-speed) linear infinite;
+}
+@keyframes inftyOrbit{ to{ filter:hue-rotate(360deg) drop-shadow(0 0 6px rgba(88,225,240,.35)); } }
+
+/* Devi “O” — negative-space circle, warm pulse; scale from --o-scale */
+.oglyph{
+  position:relative; display:inline-grid; place-items:center;
+  width:1.15em; height:1.15em; margin:0 .06em; font-weight:900;
+  color:transparent; /* keep the negative-space style you used */
+  border-radius:999px;
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 10px rgba(255,140,140,.25);
+  background:
+    radial-gradient(35% 35% at 35% 35%, rgba(255,255,255,.08), transparent 60%),
+    radial-gradient(circle at 50% 60%, rgba(255,90,90,.35), rgba(180,0,0,.12) 60%, transparent 70%);
+  animation: deviHeat var(--devi-pulse) ease-in-out infinite;
+  transform: scale(var(--o-scale));
+  transition: transform .35s ease;
+}
+@keyframes deviHeat{
+  0%  { box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 8px rgba(255,90,90,.15) }
+  50% { box-shadow: inset 0 0 0 2px rgba(255,160,160,.35), 0 0 20px rgba(255,30,30,.35) }
+  100%{ box-shadow: inset 0 0 0 2px rgba(255,255,255,.25), 0 0 8px rgba(255,90,90,.15) }
+}
+
+/* Optional: ring as halo behind the O, spinning with energy */
+.oglyph::before{
+  content:"";
+  position:absolute; inset:-.12em -.14em;
+  border-radius:50%;
+  background:
+    conic-gradient(from 0deg,
+      rgba(255,110,110,.85),
+      rgba(255,180,180,.4),
+      rgba(255,110,110,.85));
+  -webkit-mask: radial-gradient(circle, transparent calc(50% - 2px), #000 calc(50% - 1px));
+  mask: radial-gradient(circle, transparent calc(50% - 2px), #000 calc(50% - 1px));
+  filter: blur(.2px);
+  animation: deviSpin var(--devi-spin) linear infinite;
+  z-index:-1;
+}
+@keyframes deviSpin { to { transform: rotate(360deg) } }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .infty, .oglyph::before, .oglyph{ animation: none; transform:none }
+}
+
+/* Hearts line — idle + testing sequence */
+.indicator-line{ display:flex; gap:.35rem; justify-content:center; flex-wrap:wrap }
+.indicator-line .heart{
+  font-weight:900; color:rgba(255,255,255,.28); transition:color .2s ease;
+}
+
+/* animate hearts in order only while testing */
+.is-testing .indicator-line .heart{ animation: heartStep 1.1s ease-in-out infinite }
+.is-testing .indicator-line .heart:nth-of-type(1){ animation-delay: 0s }
+.is-testing .indicator-line .heart:nth-of-type(2){ animation-delay:.18s }
+.is-testing .indicator-line .heart:nth-of-type(3){ animation-delay:.36s }
+
+@keyframes heartStep{
+  0%   { color:rgba(255,255,255,.28); transform:translateY(0); filter:none }
+  40%  { color:#ff6b6b; transform:translateY(-2px); filter:drop-shadow(0 0 6px rgba(255,107,107,.6)) }
+  70%  { color:#7cf3c3; transform:translateY(0);   filter:drop-shadow(0 0 4px rgba(124,243,195,.4)) }
+  100% { color:rgba(255,255,255,.28); transform:translateY(0); filter:none }
+}
+
+/* Optional: speed up ∞ during tests (kept, but energy dial also manages speed) */
+.is-testing .infty{ animation-duration: calc(var(--infty-speed) * .6) }
