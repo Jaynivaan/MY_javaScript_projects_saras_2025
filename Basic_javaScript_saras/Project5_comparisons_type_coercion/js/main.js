@@ -156,3 +156,27 @@ function runConsoleDemo() {
     console.log("All console messages printed successfully by your grace!!!");
 
 }
+
+function checkEEETrue() {
+    console.log("checkEEETrue");
+    let comparison = (10 + 5) == 15; //true because 15 == 15;
+    const result = document.getElementById("trueEEEresult");
+    
+    result.innerText =`Result: ${comparison}\n 10 + 5 == 15.`;
+    result.style.color = "#00ff66";
+    result.style.textShadow = "0 0 15px #00ff99";
+    result.animate([{opacity:0.7},{opacity: 1}],{duration: 1200, iterations: 1});
+
+}
+
+function checkEEEFalse() {
+    console.log("checkEEEFalse");
+    let comparison = (3 == 11);// false statement as 3 is not equal to 11 in this false world..
+    const result = document.getElementById("falseEEEresult");
+
+    result.innerText =  `Result: ${comparison}\n 3 == 11 is false as absolutely 3 and 11 hold distinct values and one cannot become to equal to other in this contextual fake world..*gam*..`;
+    result.style.color = "#ff4444";
+    result.style.textShadow = "0 0 15px #ff0000";
+    result.animate([{opacity: 0.7}, {opacity: 1}], {duration: 1200, iterations: 1});
+
+}
