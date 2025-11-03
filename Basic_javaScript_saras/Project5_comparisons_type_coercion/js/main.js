@@ -4,10 +4,12 @@
 function type_Of_Operator_Function() {
     //step1: create variable s of diffenent types;
     let name ="Narayana";//string data type
+    console.log(name);
     let age = 33;//number data type
     let awakened = true; //boolean data type 
     let knowledge = {path:"Jnana", stage: "Vichara"}; //object
     let elements = ["Fire", "Water", "Air"]; //array
+
 
 
     //step2: build the message
@@ -114,5 +116,43 @@ function showFalseResult() {
     result.style.color = "#ff4444";
     result.style.textShadow = "0 0 15px #ff0000";
     result.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200, iterations: 1 });
+
+}
+
+//console.log
+//builtin method to send message to browser console mainly for debugging the code..
+console.log(2+2);
+console.log(3+3);
+console.log(name);
+let name1 = "gam";
+console.log(name1);
+
+
+function runConsoleDemo() {
+    console.log("hello from absolute");
+    console.log("Lets do few calculations");
+
+    //math 
+    console.log("2 + 2 =  ", 2+2);
+    console.log("5 * 3 = ", 5*3 );
+
+    //boolean comparison
+    console.log( " 10 greater than 2 true or false???", 10>2);
+    
+    //variables
+    let name2 ="phi";
+    console.log("the name stored  to display here for this part of the test is : ", name2);
+
+    //a mini conditional
+    let score = 8;
+    if (score > 5) {
+        console.log("passed the test");        
+    }
+    else {
+        console.log("failed");
+    }
+
+    //final friendly message
+    console.log("All console messages printed successfully by your grace!!!");
 
 }
