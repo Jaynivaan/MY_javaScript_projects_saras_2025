@@ -180,3 +180,59 @@ function checkEEEFalse() {
     result.animate([{opacity: 0.7}, {opacity: 1}], {duration: 1200, iterations: 1});
 
 }
+
+
+//case one function
+ function trueSame() {
+    let X = 10;
+    let Y = 10;
+    let result = (X===Y); //true
+    display("trueSame", result, "Congratulations sir.. both value and type matched..");    
+ }
+
+
+//case false 1 functon
+function falseCase1() {
+    let X = "5";
+    let Y = 8;
+    let result = (X===Y); //false
+    display("falseCase1",result, "Different value and and different data type.. \n  Congratulations sir,\n  You saw the reality behind the illusory perceptions \n  to a certain degree... ");
+    
+}
+
+// case false 2 function
+function falseCase2() {
+    let X = "10";
+    let Y = 10 ;
+    let result = (X===Y); //false
+    display("falseCase2",result, "Same value but the data type is difference so congratulations you now see why the test return false to the condition ===");
+}
+
+
+//case false 3 function
+function falseCase3() {
+    let X = 7;
+    let Y = 9;
+    let result = (X===Y); //false
+    display("falseCase3", result, "Same Type but values differ evidently , contextually.");
+
+
+}
+
+
+//display funcion
+function display (elementId, result, message) {
+    const element = document.getElementById(elementId);
+    element.innerText = `Result: ${result}\n ${message}`;
+
+    element.style.transition ="color 1.5s ease, text-shadow 1.5s ease";
+    if (result) {
+        element.style.color = "#00ff66";
+        element.style.textShadow = "0 0 15px #00ff99";        
+    } else {
+        element.style.color = "#ff44444";
+        element.style.textShadow = "0 0 15px #ff00000";
+    }
+    element.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200,iterations: 1});
+
+}
