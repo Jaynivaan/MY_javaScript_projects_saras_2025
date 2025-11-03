@@ -236,3 +236,41 @@ function display (elementId, result, message) {
     element.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200,iterations: 1});
 
 }
+
+
+///logical operators and or and not operators..
+
+//and
+function testAnd() {
+    let result = (5 > 2 && 10 > 4);
+    show("andResult", result, "Both conditions are true( 5 > 2 and  10 > 4 ). ");    
+}
+
+//or
+function testOr() {
+    let result = (5 > 10 || 10 > 4 );
+    show ("orResult", result, "Atleast one condition is true(10 > 4).");
+}
+
+//not
+function testNot() {
+    let result = !(10 > 5);
+    show("notResult", result,  "Not operator flips the the result of (10 > 5) from true to false .");
+}
+
+//this time display function we are naming as show.
+
+function show(id, result, message) {
+    const el = document.getElementById(id);
+    el.innerText = `Result: ${result}\n${message}`;
+    el.style.transition = "color 1s ease, text-shadow 1s ease";
+
+    if (result) {
+        el.style.color ="#00ff66";
+        el.style.textShadow ="0 0 15px #00ff99";
+
+    }else {
+        el.style.color = "#ff4444";
+        el.style.textShadow = "0 0 15px #ff0000";
+    }
+}
