@@ -51,3 +51,48 @@ function showErrorScope() {
     output.textContent += `\n Open DevTools (F12 ➡️console tab) to see detailed trace.\n`;
     console.log("Debugging: attempting to add 'notDefinedVar' which doesnt exist*gam*.");
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+//conditional awareness
+//function that responds to current time
+function get_Date() {
+    //get the current hour(0-23)
+    const hour = new Date().getHours();
+
+    //find the result para
+    const result = document.getElementById("Result");
+
+    //start wwith clean slate 
+    result.textContent = "";
+
+    //log the hour in console (useful for debugging)
+    console.log("Current Hour: ", hour);
+
+    //morning
+    if (hour >= 5 && hour < 12) {
+        result.textContent = "Good Morning ! Awareness is rising. ";
+        result.style.color = "#facc15";        
+    }
+
+    //afternoon
+    else if (hour >= 12 && hour < 18) {
+        result.textContent = "Good Afternoon ! Awareness shines bright";
+        result.style.color = "#22d3ee";        
+    }
+
+
+    //evening
+    else if (hour >= 18 && hour < 22) {
+        result.textContent = "Good Evening! Awareness begins to rest.";
+        result.style.color = "#fb923c";
+    }
+
+    //night
+    else {
+        result.textContent = "Good Night! Awareness returns  to silence.";
+        result.style.color = "#a78bfa";
+    }
+
+    ///for console learners
+    console.log("Displayed message: ", result.textContent);
+}
