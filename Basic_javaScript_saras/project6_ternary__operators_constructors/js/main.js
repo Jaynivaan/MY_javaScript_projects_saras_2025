@@ -52,3 +52,25 @@ function checkAwareness() {
     }
             el.animate([{opacity: 0.7},{opacity: 1}], {duration: 1200, iterations: 1 });
 }
+
+//keywords and constructors
+
+//constructor function
+function Vehicle(Make, Model, Year, Color) {
+    this.Vehicle_Make = Make;
+    this.Vehicle_Model = Model;
+    this.Vehicle_Year = Year;
+    this.Vehicle_Color = Color;
+}
+
+//creating new objects using  the "new" keyword
+var Jack = new Vehicle("Dodge", "Viper", 2020, "Red");
+var Emily = new Vehicle("Jeep", "TrailHawk", 2019, "White and Black");
+var Erik = new Vehicle("Ford", "Pinto", 1971, "Mustard");
+
+//function to display Eriks details:
+function myFunction() {
+    document.getElementById("Keywords_and_Constructors").innerHTML =
+        "Erik drives a " + Erik.Vehicle_Color + "-colored " + Erik.Vehicle_Model +
+        " manufactured in " + Erik.Vehicle_Year +"from maker "+ Erik.Vehicle_Make +".";
+}
