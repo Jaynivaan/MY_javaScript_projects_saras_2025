@@ -74,3 +74,37 @@ function myFunction() {
         "Erik drives a " + Erik.Vehicle_Color + "-colored " + Erik.Vehicle_Model +
         " manufactured in " + Erik.Vehicle_Year +"from maker "+ Erik.Vehicle_Make +".";
 }
+
+//New keyword assignment function
+//first constructor then function
+//constructor
+function AwarenessState(name, color, essence) {
+    this.name = name;
+    this.color = color;
+    this.essence = essence;
+    
+    this.describe = function() {
+        return `A new Awareness arises -"${this.name}" radiating ${this.color} light, carrying the essence of  ${this.essence}.  `;        
+    };
+}
+
+//fuction triggered on button onclick
+// this function will create an awareness
+function newKeywordAssignmentFunction() {
+    const names = ["Peace", "Focus", "Surrender", "Joy", "Compassion"];
+    const colors = ["Golden", "Silver", "Emerald", "Indigo", "Rose"];
+    const essences = ["clarity", "stillness", "gratitude", "freedom", "truth"];
+
+    const randomName = names[Math.floor(Math.random()*names.length)];
+    const randomColor = colors[Math.floor(Math.random()*colors.length)];
+    const randomEssence = essences[Math.floor(Math.random()*essences.length)];
+
+    const state = new AwarenessState(randomName,randomColor,randomEssence);
+    const el = document.getElementById("New_and_this");
+
+    el.innerHTML = state.describe();
+    el.style.color ="#00ffaa";
+    el.style.transition = "color 2s ease, text-shadow 1.2s ease";
+    el.style.testShadow = "0 0 15px #00ff99";    
+
+}
