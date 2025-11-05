@@ -49,6 +49,51 @@ function awakenUppercase() {
             we only see the brighter <em>view</em> of the same message.</div> `;
 }
 
+//*===============================
+/*B) search -self inquiry
+===============================
+pseudo (for audio):
+1) read the long sentence and the short query.'
+2)use search () to get the index of the first match .
+3)if -1, report not found. continue inquiry.
+4)else, split to before/match/after and highlight the match.
+5) show the index so the student understands positions.
+*/
+function inquireSearch() {
+    const hay = document.getElementById("searchText").value || "";
+    const needle =document.getElementById("searchQuery").value || "";
+    
+    const out = document.getElementById("searchOut");
+    if (!needle) {
+        out.innerHTML = `<span class="hint">Type a query word to begin inquiry.</span> `
+        return;
+    }
+
+    //search can accept  a string or a regExp;  here we begin with using a plain string.
+    const idx = hay.search(needle);
+
+    if (idx === -1) {
+        out.innerHTML = `
+            <div>🌑<strong>Not Found.</strong> keep inquiring...(search returned -1 )</div>
+            <div class="hint">Tip: search() gives the first match position or -1 if absent.</div>        
+            `;
+            return;
+    }
+    const before = hay.slice(0, idx);
+    const match = hay.slice(idx, idx + needle.length);
+    const after =  hay.slice(idx + needle.length);
+
+    out.innerHTML =`
+        <div><strong>found at index ${idx}:</strong></div>
+        <div style="margin-top: .35rem;">
+            ${escapeHTML(before)}<mark>${escapeHTML(match)}</mark>${escapeHTML(after)}
+        </div>
+        <div class="hint" style="margin-top: .5rem;">
+            index is zero-based. if the match begins the sentence, index is 0.
+        </div>        
+        `;
+}
+
 
 
 /*small helper so pasted text cant inject Html*/

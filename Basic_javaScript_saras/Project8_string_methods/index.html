@@ -27,6 +27,9 @@
             input, textarea {
                 width: 80%; padding: .65rem .8rem; border: 1px solid #2a2a2a; background: #0f0f0f; color: #fff;
             }
+            mark{
+                background: #ffe166; color:#000; padding:0.05rem .2rem; border-radius:.25rem;
+            }
           
         </style>
         
@@ -91,9 +94,17 @@
                         <button class="btn"onclick="awakenUppercase()" >Awaken (toUpperCase)</button>
                         <div id="upperOut" class="out" aria-live="polite"><!--result appears here--></div>                          
                     </section>
+                    <section>
+                        <h3>B) Self-Inquiry -<code>search()</code></h3>
+                        <p class="hint">Inquiry locates a thought inside  the field of thoughts, like finding "I" in a sentence.</p>
 
-                    
-
+                        <label for="searchText">Main sentence:</label>
+                        <textarea id="searchText" rows="3" placeholder="All this-inside and outside-is the one awareness appearing as thought."></textarea>
+                        <label for="searchQuery">Query to find: </label>
+                        <input id="searchQuery" placeholder="awareness"/>
+                        <button onclick="inquireSearch()">Inquire(Search)</button>
+                        <div id="searchOut" class="out" aria-live="polite"><!--result appear here--></div>
+                    </section>
                 </div>
             </details>
 
