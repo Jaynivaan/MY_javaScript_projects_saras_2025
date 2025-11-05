@@ -27,3 +27,31 @@ function sliceDream() {
     "Notice: The the full field still remains untouched.<br>" +
     "<small>slice() only *appears* to separate - but the original consciousness is never divided.</small>";
 }
+
+/*======================
+A) toUpperCase -Awaken
++++++++++++++++++++++++\
+pseudocode;;
+1.read text from input element.
+2. convert to uppercase with toUpperCase().
+3. Display the transformed text+a note that original remains.
+*/
+
+function awakenUppercase() {
+    const src = document.getElementById("upperInput").value || "";
+    const bright = src.toUpperCase(); // doesnt change the original string.
+
+    const box = document.getElementById("upperOut");
+    box.innerHTML = `
+        <div>☀️<strong>UpperCased: </strong> <br> ${escapeHTML(bright)}</div>
+        <div class="hint" style= "margin-top: .5rem;">
+            Note: The original text is unchanged in memory. Strings are immutable;
+            we only see the brighter <em>view</em> of the same message.</div> `;
+}
+
+
+
+/*small helper so pasted text cant inject Html*/
+function escapeHTML(s) {
+    return s.replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;','>': '&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
