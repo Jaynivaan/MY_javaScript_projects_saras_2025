@@ -142,3 +142,36 @@ function precision_Method() {
     `;
 
 }
+
+
+/////the mind flows endlessly like hte decimals of pi that we infered from math.PI;
+//the toFixed() is the symbolic of meditation.. which will round movements into still clarity..
+
+function stillNumber() {
+    const mind = Math.PI;//ever flowing illusory perception..that expands as you perceive.*gam.
+    const calm1 = mind.toFixed(2);
+    const calm2 = mind.toFixed (5);
+
+    document.getElementById("out").innerHTML = `
+        <strong>Restless mind (raw Pi): </strong> ${mind}<br><br>
+        <strong>Stilled to 2 decimals: </strong> ${calm1}<br>
+        <strong>Stilled deeper to 5 decimals: </strong> ${calm2}<br>
+        <small>Each decimal dropped is a thought dissolved.<br>
+        Precision fades, peace emerges - yet essence remains. </small>    
+    `;
+}
+//valueOf() method returns the primitive numeric essence of an object.
+//here we symbolizes awareness returning to pure beingness..
+
+function seeEssence() {
+    const form = new Number(108); //form of awareness , wrapped in appearance.
+    const essence = form.valueOf();//inner truth.
+
+    document.getElementById("out").innerHTML=`
+        <strong>Form (Number object): </strong> ${form}<br>
+        <strong>Essence (Primitive Value): </strong> ${essence}<br><br>
+        <small>Like consciousness shedding names and forms, <br>
+        valueOf() reveals the bare reality- pure, untouched non dual state.</small>
+    `;
+
+}
