@@ -100,3 +100,45 @@ function inquireSearch() {
 function escapeHTML(s) {
     return s.replace(/[&<>"']/g, c => ({'&': '&amp;', '<': '&lt;','>': '&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
+
+//number methods;;
+
+//the number represents pure potentia - silent , formless..
+function revealForm() {
+    var silence = 1;// The sacred number symbolizing wholeness..
+
+    // awareness give it expressionform using toString()
+    var spokenForm = silence.toString();
+
+    document.getElementById("output").innerHTML=`
+        <strong>Numeric Essence:</strong> ${silence}<br>
+        <strong>Expressed as string: </strong> "${spokenForm}"<br><br>
+        Notice:  The Number remains unchanged- but when stringified.., it becomes perceptible<br>
+        <small><i>form and the formless are One; Only awareness gives them names.</i></small>
+
+    
+    `;
+
+}
+
+//infinite awareness refines itself through foccussed attention.
+//Similarly, toPrecision() refines a number to a defined clarity.
+
+function precision_Method() {
+    var boundless = Math.PI;
+    console.log(boundless);//symbol of infinite flow..
+
+    // refine perception (SET PRECESION)
+    var refined1 = boundless.toPrecision(3);
+    var refined2 = boundless.toPrecision(6);
+    var refined3 = boundless.toPrecision(10);
+
+    document.getElementById("precision").innerHTML =`
+        <strong>Original Awareness (Infinite pi): </strong><br> ${boundless}<br><br>
+        <strong>Focusing to three digits: </strong>${refined1}<br>
+        <strong>Focusing to six digits: </strong> ${refined2}<br>
+        <strong>Focusing to ten digits: </strong> ${refined3}<br><br>
+        <small>As focus sharpens, perception becomes clearer- yet infinity itself remains untouched.</small>    
+    `;
+
+}

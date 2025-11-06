@@ -11,9 +11,15 @@
                 margin-top: .75rem;
                 line-height: 1.5;
             }
-            .btn {
-                margin-top: .75rem; padding: .7rem 1rem; border-radius: 10px; border: 1px solid #2a2a2a; background: #141414;color: #fff; cursor: pointer;
+            button {
+                margin-top: .95rem; padding: .7rem 1.2rem; border-radius: 10px; border: 1px solid #555; background: #111;color: #fff; cursor: pointer; transition: .3s ease;
             }
+
+            button:hover {
+                transform: scale(1.05);
+                background: #0a0a0a;
+            }
+
             .hint {
                 color: #9ab;font-size: .9rem;
             }
@@ -30,6 +36,7 @@
             mark{
                 background: #ffe166; color:#000; padding:0.05rem .2rem; border-radius:.25rem;
             }
+
           
         </style>
         
@@ -78,7 +85,7 @@
 
             <h2>More Methods Challenge</h2>
             <details>
-                <div>
+                <div style="background: #0b0b0b; color: #e9f1f7; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; margin: 0; padding: 2rem;">
                     <h3> to UpperCase & search </h3>
                     <p class="hint" >
                         Simple utilities that are also pointing to inner clarity.
@@ -105,6 +112,27 @@
                         <button onclick="inquireSearch()">Inquire(Search)</button>
                         <div id="searchOut" class="out" aria-live="polite"><!--result appear here--></div>
                     </section>
+                </div>
+            </details>
+
+            <h2> Number Methods - <code>tostring()</code> in the field of Awareness.</h2>
+            <details>
+                <div style="background: #000; color: #dff; text-align: center; padding-top: 2rem;">
+                    <p>The Numbers are silent measures until the awareness names them.<br>
+                    The <code><strong>tostring()</strong></code></p> Method gives speech to the innocent silent symbols.</p>
+                    
+                    <p id="output">Click below to watch the "number" turn into the name.</p>
+                    <button onclick="revealForm()">Reveal the Number as string</button>
+                </div>
+            </details>
+
+            <h2>toPrecision() -focusing the infnite into Clarity</h2>
+            <details>
+                <div style="background: #000; color: #dff; text-align: center; padding-top: 2rem; font-family: system-ui,monospace;">
+                    <p>The numbers represent infinite potential.<br>
+                    the <strong>toPrecision()</strong> method mirrors the moment awareness focusses bringing clarity into the boundless.</p>
+                    <p id="precision" style="margin-top: 1rem; font-size: 1.2rem; color: #b5f5ff;">Click  to experience focus.</p>
+                    <button onclick="precision_Method()">focus Awareness (toPrecision)</button>
                 </div>
             </details>
 
