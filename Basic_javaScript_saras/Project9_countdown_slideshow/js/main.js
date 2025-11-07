@@ -25,3 +25,40 @@ function countdown() {
         time--;
     },1000);
 }
+
+//////////////////////////////////==slide==show///////////////////////////////////////////////////
+let slideIndex = 1;
+showSlides(slideIndex);
+
+//next/prev controls//
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+}
+
+//Dot controls
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+//core slide show function
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {slideIndex = 1 }
+    if (n < 1) {slideIndex = slides.length}
+
+    //hide all the slides initially
+    for (i=0; i < slides.length; i++) {
+        slides[i].style.display ="none";
+    }
+
+    //remove is-active from all the dots
+    for (i = 0 ; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace("is-active", "");
+    }
+    //show the current slide 
+    slides[slideIndex - 1 ].style.display ="block";
+    dots[slideIndex - 1].className += " is-active";
+}
