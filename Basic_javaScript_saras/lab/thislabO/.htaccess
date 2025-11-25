@@ -1,0 +1,187 @@
+# ================================================
+# Mirror∞Sadhana — .htaccess shield (Hostinger)
+# ================================================
+# Jay’s portal of awareness. May all who visit be blessed.
+# ॐ नमो नारायणाय  |  Om Namo Narayanaya
+# -----------------------------------------------
+
+# --- Core -------------------------------------------------
+Options -Indexes
+DirectoryIndex index.html index.htm
+
+# --- Canonical HTTPS (enable when SSL is live) ------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  # Force HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # -----------------------------------------------
+  # 1) METHOD & VERB PROTECTION
+  # -----------------------------------------------
+  # Static site only needs GET/HEAD/OPTIONS.
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD|OPTIONS)$ [NC]
+  RewriteRule ^ - [F]
+
+  # Disallow TRACE/TRACK (XST)
+  RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)$ [NC]
+  RewriteRule ^ - [F]
+
+  # -----------------------------------------------
+  # 5) SIMPLE ATTACK-PATTERN FILTERS
+  # -----------------------------------------------
+  RewriteCond %{QUERY_STRING} (\.\./|\.\.\\|/etc/passwd|/proc/self|/windows/|/winnt/|/boot\.ini) [NC,OR]
+  RewriteCond %{QUERY_STRING} (select%20|union%20|insert%20|cast\(|convert\(|concat\(|declare%20|sleep\() [NC,OR]
+  RewriteCond %{QUERY_STRING} (base64_encode|%00|%2F%5C|%5C%2F|%7C%7C) [NC]
+  RewriteRule ^ - [F]
+</IfModule>
+
+# -----------------------------------------------
+# 2) BLOCK ACCESS TO SENSITIVE/HIDDEN PATHS
+# -----------------------------------------------
+# Dot-files & VCS
+<FilesMatch "^(\.|composer|env|git|hg|svn|bzr)">
+  Require all denied
+</FilesMatch>
+
+# Temp/backup artifacts
+<FilesMatch "(^\.|\.bak$|\.backup$|\.swp$|\.old$|\.orig$|\.save$|~$)">
+  Require all denied
+</FilesMatch>
+
+# Protect this file
+<Files ".htaccess">
+  Require all denied
+</Files>
+
+# -----------------------------------------------
+# 3) HOTLINK PROTECTION (images/video/fonts) — optional
+# -----------------------------------------------
+# Uncomment to enable, allow only your domains/CDNs.
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTP_REFERER} !^$ 
+#   RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?hellonivaan\.com/ [NC]
+#   RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?gstatic\.com/ [NC]
+#   RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?googleapis\.com/ [NC]
+#   RewriteCond %{HTTP_REFERER} !^https?://([^.]+\.)?jsdelivr\.net/ [NC]
+#   RewriteRule \.(jpe?g|png|gif|webp|mp4|webm|woff2?)$ - [F,NC]
+# </IfModule>
+
+# -----------------------------------------------
+# 4) BAD BOT / SCRAPER FILTER
+# -----------------------------------------------
+SetEnvIfNoCase User-Agent "curl|wget|httpclient|python|libwww|scrapy|nikto|sqlmap|masscan|nmap|crawler|scan" bad_bot=1
+SetEnvIfNoCase User-Agent "bot|spider|crawler|harvester|fetch|headless|headlesschrome" maybe_bot=1
+SetEnvIfNoCase User-Agent "Googlebot|Bingbot|DuckDuckBot|YandexBot|Applebot|AhrefsBot" good_bot=1
+
+Order Allow,Deny
+Allow from all
+Deny from env=bad_bot
+Deny from env=maybe_bot
+Allow from env=good_bot
+
+# -----------------------------------------------
+# 6) CORS (tight; static site → same-origin)
+# -----------------------------------------------
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "https://foolslab.hellonivaan.com"
+  Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type, Cache-Control"
+</IfModule>
+
+# -----------------------------------------------
+# 7) SECURITY HEADERS
+# -----------------------------------------------
+<IfModule mod_headers.c>
+  # MIME sniffing
+  Header set X-Content-Type-Options "nosniff"
+  # Clickjacking
+  Header always set X-Frame-Options "SAMEORIGIN"
+  # Legacy XSS filter
+  Header set X-XSS-Protection "1; mode=block"
+  # Referrer privacy
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Lock down powerful APIs
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=(), fullscreen=(self)"
+  # HSTS (only when HTTPS variable present)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+</IfModule>
+
+# -----------------------------------------------
+# 8) CONTENT SECURITY POLICY (CSP)
+# -----------------------------------------------
+# Adjust if you use other CDNs. Allows Bootstrap (jsDelivr) + Google Fonts.
+<IfModule mod_headers.c>
+  Header set Content-Security-Policy "\
+default-src 'self'; \
+script-src 'self' https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm/ 'unsafe-inline'; \
+style-src  'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/; \
+font-src   'self' https://fonts.gstatic.com data:; \
+img-src    'self' data: blob:; \
+connect-src 'self'; \
+frame-ancestors 'self'; \
+base-uri 'self'; \
+form-action 'self';"
+</IfModule>
+
+# -----------------------------------------------
+# 9) COMPRESSION
+# -----------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
+<IfModule mod_brotli.c>
+  AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# -----------------------------------------------
+# 10) CACHING (fast static portal)
+# -----------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                "access plus 5 minutes"
+  ExpiresByType text/css                 "access plus 7 days"
+  ExpiresByType application/javascript   "access plus 7 days"
+  ExpiresByType image/jpeg               "access plus 14 days"
+  ExpiresByType image/png                "access plus 14 days"
+  ExpiresByType image/webp               "access plus 14 days"
+  ExpiresByType image/svg+xml            "access plus 14 days"
+  ExpiresByType font/woff2               "access plus 30 days"
+</IfModule>
+
+# Strong client cache with revalidation for HTML
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|png|jpg|jpeg|webp|svg|woff2)$">
+    Header set Cache-Control "public, max-age=604800, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# -----------------------------------------------
+# 11) MIME TYPES
+# -----------------------------------------------
+AddType application/javascript        .js
+AddType text/css                      .css
+AddType image/svg+xml                 .svg
+AddType font/woff2                    .woff2
+AddType application/json              .json
+
+# -----------------------------------------------
+# 12) SOFT RATE MITIGATION (bandwidth shaping)
+# -----------------------------------------------
+<IfModule mod_ratelimit.c>
+  SetOutputFilter RATE_LIMIT
+  SetEnv rate-limit 400
+</IfModule>
+
+# -----------------------------------------------
+# Mantric seal (commented)
+# -----------------------------------------------
+# ॐ पूर्णमदः पूर्णमिदम् पूर्णात् पूर्णमुदच्यते ।
+# पूर्णस्य पूर्णमादाय पूर्णमेवावशिष्यते ॥
+# Om pūrṇam adaḥ pūrṇam idam pūrṇāt pūrṇam udacyate |
+# pūrṇasya pūrṇam ādāya pūrṇam evāvaśiṣyate ||
+# (That is whole, this is whole; from the whole, the whole arises.)

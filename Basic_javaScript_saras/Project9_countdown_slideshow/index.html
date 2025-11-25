@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale=1">
+        <title >
+           Countdown to Silence
+        </title>
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body style="background: #000; color:#fff; font-family: system-ui; text-align: center; padding-top: 2rem;">
+        
+        <main>            
+            <header>
+
+                
+                             
+                
+                
+               
+
+                
+               
+            </header>
+            <h2>Countdown to Silence</h2>
+            <details>
+                <p>Enter how many seconds mind wishes to stay focused on breath:</p>
+                <input id="seconds" type="number" placeholder="eg. 10"/>
+                <br/>
+                <button onclick="countdown()">Begin Now</button>
+                <p id="timer"> Waiting to Begin..</p>
+                <div id="reflection"></div>
+
+               
+            </details>
+            
+            <h2> Slideshow: witnessing frames change.</h2>
+            <details>
+                <!--one frame=onethought-->
+                <div class="slideshow">
+                    <figure class="slide">
+                        <img src="images/car1.jpg" alt="car1"/>
+                        <figcaption>this is car1.  The thought appears.witness stays..</figcaption>
+                    </figure>
+                    <figure class="slide">
+                        <img src="images/car2.jpg" alt="car2"/>
+                        <figcaption>this is car2. The Scene changes.  Awareness unchanged.</figcaption>
+                    </figure>
+                    <figure class="slide">
+                        <img src="images/car3.jpg" alt="car3">
+                        <figcaption>This is car3. The cloud moves; sky is still.</figcaption>
+                    </figure>
+
+                    <!--controls---->
+                    <button class="nav prev" aria-label="Previous" onclick="plusSlides(-1)"><</button>
+                    <button class="nav next" aria-label="Next" onclick="plusSlides(1)">></button>
+
+                    <!--dots-->
+                    <div class="dots" role="tablist" aria-label="Slide-Selector">
+                        <button class="dot is-active" role="tab" aria-selected="true" onclick="currentSlide(1)"></button>
+                        <button class="dot" role="tab" aria-selected="false" onclick="currentSlide(2)"></button>
+                        <button class="dot " role="tab" aria-selected="false" onclick="currentSlide(3)"></button>
+                    </div>
+                </div>
+            </details>
+
+        
+            
+          
+           
+
+        
+
+            
+            
+
+        </main>
+        <script src="js/main.js"></script>
+        
+        <footer>
+            <smaller>
+                &copy;jayakrishnaParameswarankutty no rights are reserved.*gam*
+            </smaller>
+        </footer>
+    </body>
+</html>

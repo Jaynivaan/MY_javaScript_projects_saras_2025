@@ -1,0 +1,276 @@
+//
+
+
+function type_Of_Operator_Function() {
+    //step1: create variable s of diffenent types;
+    let name ="Narayana";//string data type
+    console.log(name);
+    let age = 33;//number data type
+    let awakened = true; //boolean data type 
+    let knowledge = {path:"Jnana", stage: "Vichara"}; //object
+    let elements = ["Fire", "Water", "Air"]; //array
+
+
+
+    //step2: build the message
+    let message = "knowing the essence through the typeof \n\n";
+    message+= `name => ${typeof name}\n`;
+    message+= `age => ${typeof age}\n`;
+    message+= `awakened => ${typeof awakened}\n`;
+    message+= `knowledge => ${typeof knowledge}\n`;
+    message+= `elements => ${typeof elements}\n`;
+    message+="Awareness identifies forms , yet remains beyond all forms and types..";
+
+    //step3: display dynamically
+    const display = document.getElementById("typeCheck");
+    display.innerText = message;
+
+
+
+    //step4: js animation
+    display.style.transition= "all 2s ease";
+    display.style.color= "#00ffff";
+    display.style.textShadow= "0 0 15px #00ffcc";
+
+
+}
+
+
+//show infinity function:
+
+function showP_Infinity() {
+    //step 1 : create a number larger than javascript can handle.
+    let infiniteValue = 2E310;//this means 2 x 10^310, which is beyond js world.
+
+    // step 2: create the message..
+    let message = 
+        `The result is ${infiniteValue}\n\n `+
+        `Explanation: \n` +
+        `Javascript uses floating point numbers. \n`+
+        `When a number is too large it becomes Infinity.\n`+
+        `Infinity means a value beyond measureable limit.`
+
+    //step3: display it on the page .
+    const output = document.getElementById("positiveInf");
+    output.innerText = message;
+
+    //step 4: animate..(noNO just color style..)
+    output.style.color = "#00ffcc";
+    output.style.textShadow = "0 0 20px #00ffff";
+
+
+
+}
+
+function showN_Infinity() {
+    //step 1 : create a number larger than javascript can handle.
+    let negativeinfiniteValue = -3E310;//this means 2 x 10^310, which is beyond js world.
+
+    // step 2: create the message..
+    let message = 
+        `The result is ${negativeinfiniteValue}\n\n `+
+        `Explanation: \n` +
+        `Javascript uses floating point numbers. \n`+
+        `When a number is too small, it becomes negative-Infinity.\n`+
+        `Negative Infinity means a value endlessly decreasing beyond measure.`
+
+    //step3: display it on the page .
+    const output = document.getElementById("negativeInf");
+    output.innerText = message;
+
+    //step 4: animate..(noNO just color style..)
+    output.style.color = "#ff4444";
+    output.style.textShadow = "0 0 15px #ff2222";
+}
+
+//function to show a true result:
+function showTrueResult() {
+    let comparison = 10 > 2; // true statement because 10 is technically greater than 2;
+    let explanation = comparison
+        ? "True - 10 is greater than 2."
+        : "False - this should not be  happening if i am living in this dream..";
+
+    const result = document.getElementById("trueResult");
+    result.innerText = `Result : ${comparison}\n${explanation}`;
+
+    //display
+    result.style.transition = "color 1.5s ease, text-shadow 2s ease";
+    result.style.color = "#00ff66";
+    result.style.textShadow = "0 0 15px #00ff99";
+    result.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200, iterations: 1 });
+
+
+}
+//function to show a false result:
+function showFalseResult() {
+    let comparison = 5 > 15; // false because 5 is less than 15 //
+    let explanation = comparison
+        ? "True - the statement is not true at all ."
+        : "False - this is a false statement as 5 is less than 15.";
+
+    const result = document.getElementById("falseResult");
+    result.innerText = `Result : ${comparison}\n${explanation}`;
+
+    //display
+    result.style.transition = "color 1.5s ease, text-shadow 2s ease";
+    result.style.color = "#ff4444";
+    result.style.textShadow = "0 0 15px #ff0000";
+    result.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200, iterations: 1 });
+
+}
+
+//console.log
+//builtin method to send message to browser console mainly for debugging the code..
+console.log(2+2);
+console.log(3+3);
+console.log(name);
+let name1 = "gam";
+console.log(name1);
+
+
+function runConsoleDemo() {
+    console.log("hello from absolute");
+    console.log("Lets do few calculations");
+
+    //math 
+    console.log("2 + 2 =  ", 2+2);
+    console.log("5 * 3 = ", 5*3 );
+
+    //boolean comparison
+    console.log( " 10 greater than 2 true or false???", 10>2);
+    
+    //variables
+    let name2 ="phi";
+    console.log("the name stored  to display here for this part of the test is : ", name2);
+
+    //a mini conditional
+    let score = 8;
+    if (score > 5) {
+        console.log("passed the test");        
+    }
+    else {
+        console.log("failed");
+    }
+
+    //final friendly message
+    console.log("All console messages printed successfully by your grace!!!");
+
+}
+
+function checkEEETrue() {
+    console.log("checkEEETrue");
+    let comparison = (10 + 5) == 15; //true because 15 == 15;
+    const result = document.getElementById("trueEEEresult");
+    
+    result.innerText =`Result: ${comparison}\n 10 + 5 == 15.`;
+    result.style.color = "#00ff66";
+    result.style.textShadow = "0 0 15px #00ff99";
+    result.animate([{opacity:0.7},{opacity: 1}],{duration: 1200, iterations: 1});
+
+}
+
+function checkEEEFalse() {
+    console.log("checkEEEFalse");
+    let comparison = (3 == 11);// false statement as 3 is not equal to 11 in this false world..
+    const result = document.getElementById("falseEEEresult");
+
+    result.innerText =  `Result: ${comparison}\n 3 == 11 is false as absolutely 3 and 11 hold distinct values and one cannot become to equal to other in this contextual fake world..*gam*..`;
+    result.style.color = "#ff4444";
+    result.style.textShadow = "0 0 15px #ff0000";
+    result.animate([{opacity: 0.7}, {opacity: 1}], {duration: 1200, iterations: 1});
+
+}
+
+
+//case one function
+ function trueSame() {
+    let X = 10;
+    let Y = 10;
+    let result = (X===Y); //true
+    display("trueSame", result, "Congratulations sir.. both value and type matched..");    
+ }
+
+
+//case false 1 functon
+function falseCase1() {
+    let X = "5";
+    let Y = 8;
+    let result = (X===Y); //false
+    display("falseCase1",result, "Different value and and different data type.. \n  Congratulations sir,\n  You saw the reality behind the illusory perceptions \n  to a certain degree... ");
+    
+}
+
+// case false 2 function
+function falseCase2() {
+    let X = "10";
+    let Y = 10 ;
+    let result = (X===Y); //false
+    display("falseCase2",result, "Same value but the data type is difference so congratulations you now see why the test return false to the condition ===");
+}
+
+
+//case false 3 function
+function falseCase3() {
+    let X = 7;
+    let Y = 9;
+    let result = (X===Y); //false
+    display("falseCase3", result, "Same Type but values differ evidently , contextually.");
+
+
+}
+
+
+//display funcion
+function display (elementId, result, message) {
+    const element = document.getElementById(elementId);
+    element.innerText = `Result: ${result}\n ${message}`;
+
+    element.style.transition ="color 1.5s ease, text-shadow 1.5s ease";
+    if (result) {
+        element.style.color = "#00ff66";
+        element.style.textShadow = "0 0 15px #00ff99";        
+    } else {
+        element.style.color = "#ff44444";
+        element.style.textShadow = "0 0 15px #ff00000";
+    }
+    element.animate([{opacity: 0.7},{opacity: 1}],{duration: 1200,iterations: 1});
+
+}
+
+
+///logical operators and or and not operators..
+
+//and
+function testAnd() {
+    let result = (5 > 2 && 10 > 4);
+    show("andResult", result, "Both conditions are true( 5 > 2 and  10 > 4 ). ");    
+}
+
+//or
+function testOr() {
+    let result = (5 > 10 || 10 > 4 );
+    show ("orResult", result, "Atleast one condition is true(10 > 4).");
+}
+
+//not
+function testNot() {
+    let result = !(10 > 5);
+    show("notResult", result,  "Not operator flips the the result of (10 > 5) from true to false .");
+}
+
+//this time display function we are naming as show.
+
+function show(id, result, message) {
+    const el = document.getElementById(id);
+    el.innerText = `Result: ${result}\n${message}`;
+    el.style.transition = "color 1s ease, text-shadow 1s ease";
+
+    if (result) {
+        el.style.color ="#00ff66";
+        el.style.textShadow ="0 0 15px #00ff99";
+
+    }else {
+        el.style.color = "#ff4444";
+        el.style.textShadow = "0 0 15px #ff0000";
+    }
+}
