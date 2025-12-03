@@ -129,9 +129,9 @@ function checkWinConditions() {
 //this function make our body element temporarily unclickable.
 function disableClick() {
     //this  makes our body unclickable.
-    bodyParser.style.pointerEvents = 'none';
+    body.style.pointerEvents = 'none';
     //this makes our body clickable again after 1s
-    setTimeout(function() {bodyParser.style.pointerEvents = 'auto';}, 1000);
+    setTimeout(function() {body.style.pointerEvents = 'auto';}, 1000);
 }
 
 //this  function takes a string parameter of the path you set earlier for 
