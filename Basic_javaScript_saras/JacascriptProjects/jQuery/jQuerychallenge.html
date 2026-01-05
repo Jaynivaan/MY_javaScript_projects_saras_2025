@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jQuery challenge</title>
+        <!--jquery cDN-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jQuery.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="container">
+            <h2>jQuery Challenge</h2>
+
+            <p id="text">click the button to hide this text.</p>
+            <button id="btn">click Me</button>
+
+        </div>
+
+        <script>
+            $(document).ready(function(){
+
+                
+                $("#btn").click(function(){//jquery event 
+                    $("#text").hide();//jquery effect
+                });
+                
+            });
+        </script>
+    </body>
+</html>
