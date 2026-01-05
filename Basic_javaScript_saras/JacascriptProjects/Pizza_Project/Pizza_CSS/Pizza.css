@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #111;
+    color: #fff;
+}
+#menuBG {
+    width: 600px;
+    height: 430px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;    
+    margin: 40px auto;
+    background: linear-gradient(135deg, #232526, #414345);
+    border-radius: 12px;
+    box-shadow: 0px 0px 12px #00ffff55;
+    color: #e1f8ff;
+    font-family: monospace, Arial, Helvetica, sans-serif;
+}
+
+#frmMenu {
+    width: 350px;
+    height: 350px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#totalPrice {
+    margin-top: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 6px;
+    background: #222;
+    box-shadow: 0px 0px 8px inset #08e8de;
+}
+
+.left {
+    width: 45%;
+    height: auto;
+    float: left;
+
+}
+
+.center {
+    width: 45%;
+    height: auto;
+    float: center;
+}
+
+.right {
+    width: 45%;
+    Height: auto;
+    float: right;
+}
+h1, h3 {
+    text-align: center;
+    color: #f6f6f6;
+    margin: 10px 0;
+}
+
+
+
+#showText {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#cart {
+    width: 450px;
+    margin: 20px auto;
+    padding: 15px;
+    margin-top: 20px;
+    text-align: left;
+    background:rgba(0, 255,255,0.05)
+    
+   /*
+    border-radius: 12px;
+    */
+
+}
+
+#btnOrder {
+    width: 140px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    padding: 12px 24px;
+    background: linear-gradient(120 deg, #00ffd5, #008cff);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.25s;
+    border: none;
+    box-shadow: 0 0 12px rgba(0, 255,255,0.6);
+     
+    
+}
+#btnOrder:hover {
+    transform: scale(1.05);
+    background: #08e8de;
+    box-shadow: 0px 0px 18px rgba(0, 255,255,0.8);
+}
