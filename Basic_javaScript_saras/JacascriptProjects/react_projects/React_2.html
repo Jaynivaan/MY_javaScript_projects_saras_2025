@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>React assignment 2</title>
+
+        <!--Load React core library (handles components, state aand  lifecycle.)-->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+
+        <!--load react DOM (handles rendering React into the browser DOM)-->
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    </head>
+
+    <body>
+        <!--
+        React never creates the root element by itself.
+        This following div is the mount point where react will render content.        
+        -->
+
+        <div id="like_button_container"></div>
+
+        <script>
+            /*
+            React.createElement is the fundamental building block of React.
+            JSX(<button>like</button>)eventually becomes React.createElement calls.
+            Here we store it in X to keep the syntax short and  readable.
+            */
+           const X = React.createElement;
+           /*
+           this is a React class component.
+           -it extends React.component
+           -it can have state
+           -it must implement a render() method
+           */
+          class likeButton extends React.Component {
+            /*
+            The constructor runs when the component is created.
+            Props = data passed from parent (not used here, but required.)
+            */
+           constructor(props){
+            super(props);//Required:  initialized React.Component
+
+            /*
+            state is internal data owned by the component.
+            changing state causes react to rerender automatically.
+            */
+           this.state={
+            liked: false
+           };
+           }
+           /*
+           render() describes what should appear on the screen.
+           React calls this every time when state or props change.
+           */
+          render() {
+            /*
+            Conditional Rendering:
+            if the button is already been clicked,
+            return plain text instead of a button.
+            */
+           if (this.state.liked){
+            return 'You clicked the like button already .. thanks a lot sir!!';
+           }
+           /*
+           if not liked yet, render a button.
+           React.createElement arguments:
+           1)Element type ('button')
+           2)props object (events, attributes)
+           3)Children (text or elements)
+           */
+            return X (
+                'button',
+                {
+                    /*
+                    onClick is a react event handler.
+                    setState updates state and triggers re-render.
+                    */
+                onClick: () => this.setState({ liked: true })
+                },
+                'Like'
+            );
+            }
+          }
+
+          /*
+          Find the DOM element where React should render.
+          if this return null , react will throw an error.
+          */
+         const domContainer = document.querySelector('#like_button_container');
+
+         /*
+         React DOM.render:
+         -Takes a react element
+         - Injects it into a real DOM node
+         -Keeps dom in sync with component state
+         */
+        ReactDOM.render(
+            X(likeButton), // create the component instance
+            domContainer //Mount Point
+        );
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content ="width=device-width, initial-scale=1.0" />
+        <title> fools portfolio</title>
+        <link rel="stylesheet" href="css/style.css"/>
+
+    </head>
+
+    <body>
+        <!--navigtion-->
+        <header class="nav">
+            <a class="brand" href="#home">Home</a>
+
+            <nav class="links">
+                <a href="#about">About</a>
+                <a href="#projects">projects junction</a>
+                <a href="#github">GitHub</a>
+                <a class="cta" href="#contact">Contact the fool</a>
+            </nav>
+            
+        </header>
+        <!--hero -->
+
+        <main id="home" class="hero">
+            <!--gif-->
+            <img id="heroGif"
+                class="hero-bg" src="assets/hero.gif" alt="Background illusory gifs" />
+
+            <div class="hero-overlay"></div>
+            <section class="hero-content">
+                <img class="avatar" src="assets/jay.jpeg" alt="fools photographic illustration" />
+                <h1>Power your Dreams. </h1>
+                <h3>thy conjure fool for that ..</h3>
+                <p class="sub">
+                    Minimal.clean.simple fools portfolio <br>created exquisitely for the respected coding gods ..<br>MY TEACHERS from <strong>prosper consulting iNc</strong> 
+                </p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#projects">view projects</a>
+                    <button class="btn ghost" type="button" onclick="openContact()">
+                        Quick contact
+                    </button>
+                </div>                
+            </section>
+        </main>
+
+        <!--about-->
+        <section id="about"  class="about">
+            <h2>
+                About fool
+            </h2>
+            <p>
+                i,m Jayakrishnan Parameswarankutty, a non popular notorius fool.building web projects using html, css and js.
+                I Like simple english and simple code... if the code looks<strong>heavy</strong> understand ..an ai did heavylifting for me ..
+                i dont rely on my memorization much ,so i am very bad with low level programming.. yet i am confident in  highlevel architecture of systems,,
+                rust and javascript are my favourite languages. i am a noob anways but i will handle heavy code as i am a fool who mostly handle 
+                unforseen unpresidented circumstances and craft solutions then and there with in the premises of uncertainity.
+
+            </p>
+        </section>
+
+        <!---projects-->
+        <section id = "projects" class="section">
+            <h2>
+                Projects
+            </h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>projects junction</h3>
+                    <p>this is the website where i hosted the routing for various subdomains each with different projects developed at different level of my learning stage.</p>
+                    <a class="link" href="https://thoughts.hellonivaan.com/" target="_blank" rel="noreferrer">Live</a>
+                    <span class="dotsep">&dot;</span>
+                    <a class="link" href="https://github.com/jaynivaan" tartet="_blank" rel="noreferrer">code</a>
+                </article>               
+
+            </div>
+        </section>
+
+        <!--github-->
+        <section id="github" class="section">
+            <h2>github</h2>
+            <p>
+                explore my code here .. i enjoyed each "git commit -m" i performed ..
+                <a class="link" href="https://github.com/jaynivaan" target="_blank" rel="noreferrer">
+                    fools codebase
+                </a>
+            </p>
+        </section>
+
+        <!--contact-->
+        <section id="contact" class="section">
+            <h2>Contact the fool</h2>
+            <button class="btn primary" type="button" onclick="openContact()">
+                Open Contact form
+            </button>         
+        </section>
+
+        <!---contact modal-->
+        <div id="contactModal" class="modal" aria-hidden="true">
+            <div class="modal-box">
+                <div class="modal-head">
+                    <h3>Message</h3>
+                    <button class="x" type="button" onclick="closeContact()">x</button>
+                </div>
+                <!--simple: mailto-->
+                <form class="form" action="mailto:fool@hellonivaan.com" method="post" enctype="text/plain">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="type in Your sweet name here sir.. " required/>                        
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="enter your email here sir.." required/>
+                    </label>
+                    <label>
+                        Message
+                        <textarea name="message" rows="4" placeholder="type in your message here.. " required></textarea>
+                    </label>
+
+                    <div class="form-actions">
+                        <button class="btn primary" type="submit">Send</button>
+                        <button class="btn ghost" type="button" onclick="closeContact()">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>
+                &copy; <span id="year"></span> fool &dot; Built with Html, css and js .<br>
+                <small>the email i pointed within mailto: action inside the contact form snippet is a spoof <br>
+                    and this is page is created only for assignment purposes..<br>
+                    Thanksfor visiting to see my page ..thanks..
+                </small>
+            </p>
+
+        </footer>
+
+        <script src="js/main.js">
+
+        </script>
+        
+
+        
+    </body>
+</html>

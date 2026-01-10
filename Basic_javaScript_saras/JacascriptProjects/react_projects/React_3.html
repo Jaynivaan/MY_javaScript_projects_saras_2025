@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name=" viewport" content=" width= decice-width,initial-scale= 0" />
+        <title>React JSX Assignment</title>
+
+        <!--These must point to the pasted react files on the root of this dir.-->
+        <script src="react.js"></script>
+        <script src="react-dom.js"></script>
+        <!--
+        React core library: 
+        -handles components, states , redering logic.
+        -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        
+        <!--
+        React DOM: 
+        -handles connecting React to browse DOM.
+        -->
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        
+        <!--
+        Babel: 
+        -handles translation of JSX in to  plain javascript.
+        -JSX CANNOT run in browsers with out babel.
+        -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+        
+    </head>
+    <body>
+
+        <!--
+        this div is the root where react will inject content.
+        React never creates this by itself.. 
+        -->
+        <div id="jsx"></div>
+
+
+        <!--
+            type= "text/babel" tells the browser:
+            "This script contains JSX - Compile it first"
+        -->
+
+        <script type="text/babel">
+            /*
+                This is the react class component . 
+                JSX works inside render() methods.
+            */
+           class Greeting extends React.Component {
+            /*
+                render() must return atleast one parent element.
+                JSX looks like Html, but remember "stupid jay" its not Html ..
+                It is the syntactic sugar for React.createElement().
+            */
+                render() {
+                    return (
+                        <h1>
+                            Hello, world !
+                        </h1>
+                    );
+                }
+            }
+
+            /*
+                ReactDOM.render does three things:
+                1. Creates the component
+                2. converts JSX to React Elements
+                3. Injects the result into the real DOM
+            */
+
+            ReactDOM.render(
+                <Greeting />, //jsx component invocated 
+                document. getElementById('jsx') // DOM mount point.
+            );
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name=" viewport" content=" width= decice-width,initial-scale= 0" />
+        <title>React 1</title>
+
+        <!--These must point to the pasted react files on the root of this dir.-->
+        <script src="react.js"></script>
+        <script src="react-dom.js"></script>
+        <!-- 
+        React core library: 
+        -handles components, states , redering logic.
+        -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        
+        <!--
+        React DOM: 
+        -handles connecting React to browse DOM.
+        -->
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+        
+        <!--
+        Babel: 
+        -handles translation of JSX in to  plain javascript.
+        -JSX CANNOT run in browsers with out babel.
+        -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+        
+        <style>
+            /*
+                FADE CHALLENGE EXPLANATION:
+                -------------------------\
+                WE want the element to fade in as hte the page loads ..
+                CSS animations work like this :
+                -Start state (opacity: 0)=>invisible
+                -End   state (Opacity: 1)=>visible
+                -The browser automatically runs this animation on page load.                
+            */
+            .fade-in {
+                /*Element starts invisible*/
+                opacity:0;
+                /*
+                    animation name: fadeIneffect
+                    animation duration: 2 seconds
+                    animation timing function: ease in 
+                    animation fill mode: forwards (keep final state)
+                */
+                animation: fadeInEffect 2s ease-in forwards;
+            }
+
+            /*keyframes defines how hte animation behaves over time*/
+            @keyframes fadeInEffect {
+                from {
+                    opacity: 0; /*fully transparent*/
+                }
+                to {
+                    opacity: 1; /* fully visible*/
+                }
+            }
+
+            /*
+            Pop up form styles
+            ==================\
+            -hidden by default form
+            -fixed position 
+            =Appears above the page
+            */
+            /* Popup open button*/
+            .open-button {
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                opacity: 0.9;
+                position: fixed;
+                bottom: 23px;
+                right: 28px;
+                width: 240px;
+            }
+
+            .popup-overlay {
+                display: none; /*hidden initially*/
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6)/*dark background*/
+                z-index: 1000;
+            }
+
+            .popup-form {
+                background: white;
+                width: 300px;
+                padding: 20px;
+                margin: 150px auto; /*centers the popup*/
+                border-radius: 6px;
+            }
+
+             /*
+            Animation challenge
+            ==================\
+            This animation moves an element from left to right repeatedly
+            */
+            @keyframes slideRight {
+                form{
+                    transform: translateX(0);
+                }
+                to {
+                    transform: translateX(150px);
+                }
+            }
+
+            /* Apply animation to this class */
+            .animate-box {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #4Caf50;
+                color: white;
+                margin-top: 20px;
+
+                animation: slideRight 2s ease-in-out infinite alternate;
+            }
+
+            /*
+            ==================================
+            ZOOM IN AND OUT CHALLENGE
+            =================================
+            THIS zooms in and out using the css transform styling.
+           */
+
+           .zoom-container {
+            width: 300px;
+            overflow: hidden; /* Hides image overflow when zooming*/
+            margin-top: 30px;
+           }
+
+           .zoom-image {
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+           }
+
+           /*Zoom In on hover*/
+           .zoom-container:hover .zoom-image {
+            transform: scale(1.3);
+           }
+
+        /*
+            ===========================
+            Bookmark challenge
+            and 
+            smooth scrolling behaviour
+            ===========================
+        */
+        /*
+            This tells the browser to scroll smoothly  
+            whenjumping to anchor links (#section)
+        */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #section2 {
+            margin-top: 58px;
+        }
+
+        /*
+        ===========================
+        automatic slideshow
+        ===========================
+        */
+        #slideshow {
+            margin: 50px auto;
+            position: relative;
+            width: 240px;
+            height: 240px ;
+            padding: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+        }
+
+        #slideshow > div {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #slideshow img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /*
+        ===========================
+        sticky challlenge
+        ===========================
+        */
+        .contact-btn{
+            position: fixed;
+            right: 24px;
+            bottom: 124px;
+            padding: 14px 18px;
+            border:none;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 9999;
+            font-weight: 600;
+
+        }
+
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+
+        <!--
+            =================================
+            BOOKMARK NAVIGATION
+            =================================
+        -->
+        <nav>
+            <a href="#section1">Go to Section 1 </a>
+            <a href="#section2">Go to Section 2 </a>
+            <a href="#section3">Go to Section 3 </a>
+        </nav>
+
+
+        <div class="animate-box">
+            gam iam animated using the key frames for the keyframe animation challenge..
+        </div>
+        <div >
+            <h1 style="font-size: 8vw;">Hello Vw Unit Challenge!!</h1>
+            <h2 class="fade-in">Hello fade challenge!</h2>
+            <p class="fade-in">this text and the preceding heading will fade in once when page loads ..</p>
+        </div>
+
+        <hr><!--horizontal rule tag-->
+
+        <!----------------
+            Zoom challenge
+            --------------            
+        -->
+
+         <div class="zoom-container">
+            <img
+                src="zoom.jpg" 
+                alt="fingers zooming in on a mouse pad area of a laptop."
+                class="zoom-image"
+            />
+        </div>
+        <div>
+            <!--
+            BookMark target sections
+            -------------------------        
+            -->
+            <section id="section1" >
+                <h2>Section 1 bookmark challenge</h2>
+                <p>This is the first bookmarked section.</p>
+            </section>
+            <section id="section2" >
+                <h2>Section 2 bookmark challenge</h2>
+                <p>This is the second bookmarked section.</p>
+            </section>
+            <section id="section3" >
+                <h2>Section 3 bookmark challenge</h2>
+                <p>This is the third bookmarked section.</p>
+            </section>
+        </div>
+
+        <!--
+            
+        -->
+        <!--
+            Form challenge
+            --------------
+            this form contains:
+            -A Name field
+            -A phone number field
+            -A submit button
+
+            the form calls javascript function before submission
+        -->
+        <form onsubmit="return validateForm();">
+            <label>
+                Name:
+                <input type="text" id="name">
+            </label>
+            <label>
+                Phone Number: 
+                <input type="tel" id="phone">
+            </label>
+
+            <button type="submit">Submit</button>
+        </form>
+
+
+        <div id="slideshow">
+            <div>
+                <img 
+                src="s1.jpg" 
+                alt="slide show image one"
+                />
+            </div>
+            <div>
+                <img 
+                src="s2.jpg" 
+                alt="slide show image two"
+                />
+            </div>
+            <div>
+                Pretty cool eh? This slide is where i learned content on a slideshow can be evenjust a text string ..
+            </div>
+        </div>
+
+         <!--========================================
+            sticky contact button  CHALLENGE (HTML)
+            ========================================           
+        -->
+        <button id="stickybutton" class ="contact-btn">sticky button</button>
+
+
+
+
+            
+
+        
+
+        <!--========================================
+            POPUP FORM CHALLENGE (HTML)
+            ========================================
+            button opens Popup
+            Popup contains a contact form
+        -->
+
+        <button class ="open-button" onclick="openPopup()">Open popup form</button>
+        <!--Popup overlay-->
+        <div class="popup-overlay" id="popup">
+            <div class="popup-form">
+                <h3>PopUp contact form challenge form</h3>
+
+                <label>
+                    Name: 
+                    <input type="text" />
+                </label>
+                <br>
+
+                <label>
+                    Phone: 
+                    <input type="tel" />
+                </label>
+
+                <br/><br/>
+                <button onclick="closePopup()" >close</button>
+        </div>
+
+        
+
+        <script>
+
+            /*
+                FORM VALIDATION LOGIC:
+                =====================
+                tHIS function runs when the form is submitted.
+                -if any required field is empty:
+                --show an alert
+                --stop form submission
+            */
+           function validateForm() {
+            const name= document.getElementById("name").value;
+            const phone= document.getElementById("phone").value;
+
+            /*
+                check for emptyfields
+            */
+           if (name==="" || phone ==="") {
+            alert("Please fill in the fields before submitting.");
+            return false; // prevents form submission.
+           }
+           /*
+                if all fields are filled,
+                allow form submission.
+           */
+          return true; //allow form submission
+           }   
+           
+           
+           /*
+              Twosimplefucntions:
+              -openPopup() -> shows popup
+              -close Popup()->hides popup  
+           */
+          //show popup
+          function openPopup(){
+            document.getElementById("popup").style.display= "block";
+          }
+
+          //hide popup
+          function closePopup() {
+            document.getElementById("popup").style.display="none";
+          }
+
+          //run after the page loads
+          window.addEventListener("DOMContentLoaded", () => {
+            const slides = Array.from(document.querySelectorAll("#slideshow > div"));
+            let index = 0;
+
+            //hide all in slide show div execpt first div content.
+            slides.forEach((s,i) => (s.style.display = i ===0 ? "block" : "none"));
+
+            setInterval(() => {
+                slides[index].style.display = "none";
+                index = (index + 1) % slides.length;
+                slides[index].style.display = "block";
+            }, 3000);//change slide every 3 seconds
+          });
+        </script>
+        
+        
+
+        
+    </body>
+    <footer>
+       
+    </footer>
+</html>

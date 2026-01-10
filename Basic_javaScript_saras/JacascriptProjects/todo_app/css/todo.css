@@ -1,0 +1,84 @@
+
+
+/*
+    this styles hte entire page text.
+    -sets a clean, modern font.
+    -centers all text  by default.
+*/
+
+html {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+
+}
+
+/*
+    This limits the page width and centers hte app.
+    -max-width prevents the app from stretching too wide.
+    -margin : 0 auto ; centers automatically.
+*/
+body{
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/*
+    Styles the task input box.
+    -big padding + height = easy for  comfortable typing .
+    -large font for readability.
+    -border removed for  clean User interface.
+*/
+input {
+    padding-top: 30px;
+    width: 500px;
+    height: 60px;
+    font-size: 40px;
+    border: 0;
+
+}
+
+/*
+    Removes the blue outline when clicking the input.
+    (purely visual improvement intended )
+*/
+input:focus {
+    outline: none;
+}
+
+/*
+    styles each todo item (List item).
+    -left aligned so tasks read naturally.
+    -Removes default bullet points.
+*/
+li {
+    text-align: left;
+    font-size: 40px;
+    list-style: none;
+    margin: 0;
+}
+
+/*
+    todo container centering challenge
+    i enclosed all he todo soul inside a div with id app and
+    now here styling #app 
+*/
+#app {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+#footer {
+    
+    
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-top: 3px solid #ccc;
+    padding-top: 10px 0;
+    background: white
+
+}
