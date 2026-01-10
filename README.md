@@ -28,3 +28,46 @@ this file is styled within with root tones, body, header, h1, main, button, butt
 included a basic js script as a voluntary js learn initiative...
 
 =---\
+
+
+ReadMe assignment 
+==================
+#javascript  Projects - by Jayakrishnan
+ 
+ these are small projects created during the Javascript course;
+ Main portfolio live at : https://github.com/jaynivaan  
+
+
+ **To-Do app**
+ **Tic-Tac-Toe**
+ **calculator**
+ **pizza Menu**
+
+ ##Portfolio website (final project)
+
+ A responsive  portfolio site built with html, css and js.
+ Includes a hero section, navigation, card styling,  automatic slideshow, and contact.
+
+ ##To-Do App
+
+ A simple task tracker built with javascript.
+ users can add, complete and remove task.
+
+##Tic-Tac- toe game
+
+classic tic tac toe game using javascript for game logic and interactions.
+includes sounds, win detection and game reset.
+
+##Calculator
+
+A basic four functions calculator (just  supporting common operations)project.
+Built with button inputs and javascript eventhandling.
+
+##Pizza Menu
+
+A menu app that allows selecting pizza options and calculates the total cost.
+Demonstrates form inputs, DOM updates, and basic logic.
+
+
+
+
